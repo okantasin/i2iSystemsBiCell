@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import ForgetPassword from './pages/ForgetPassword';
+import Information from './pages/Information';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Home from './pages/Home';
+import { Route, Routes } from 'react-router-dom';
+import { useContext } from "react";
+import AppContext from './context/AppContext';
 
 function App() {
+  const { isLoading } = useContext(AppContext);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="users/information" element={<Information />} />
+        <Route path="users/register" element={<Register />} />
+        <Route path="users/forgetpassword" element={<ForgetPassword />} />
+      </Routes>
     </div>
+
+
   );
 }
 
